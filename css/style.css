@@ -1,0 +1,43 @@
+*{
+  transition:0.6s all;
+}
+
+body {
+  max-width: 1200px;
+  margin: auto;
+  background-image: url(../images/bg.jpg);
+}
+
+h1 {
+  text-align: center;
+  color: green;
+}
+
+.galerie {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+
+
+
+}
+
+img {
+  display: flex;
+  border: 1px solid white;
+  width: 150px;
+  height: auto;
+}
+
+.galerie:hover img {
+  filter: sepia(1);
+  
+}
+
+
+.galerie img:hover {
+  transform: scale(1.25);
+  filter: sepia(0);
+  z-index: 1;
+
+}
