@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Exercice : Création et suppression d'éléments</title>
+  <script type="module">
+    const listeTaches = document.getElementById('liste-taches');
+    const inputNouvelleTache = document.getElementById('nouvelle-tache');
+    const boutonAjouter = document.getElementById('ajouter-tache');
+
+    // 1. Créez une fonction pour ajouter une nouvelle tâche
+    function ajouterTache() {
+      const monLi = document.createElement("li")
+      const valeurInput = inputNouvelleTache.value
+      monLi.textContent = valeurInput
+      //ajoutez le<li> à la liste
+      listeTaches.appendChild(monLi)
+      // vider l'input apres l'ajout
+      inputNouvelleTache.value = ""
+    }
+    // 2. Ajoutez un écouteur d'événements au bouton pour appeler ajouterTache()
+    boutonAjouter.addEventListener("click", ajouterTache)
+    // 3. Créez une fonction pour supprimer une tâche lorsqu'on clique dessus
+    function supprimerTache(event) {
+      const elementClique = event.target
+      if (elementClique.tagName == "LI") {
+        elementClique.remove()
+      }
+    }
+
+    // 4. Ajoutez un écouteur d'événements à la liste pour gérer la suppression
+    listeTaches.addEventListener("click", supprimerTache)
+
+    // Bonus: alternative en utilisant: "event delegation"
+
+
+  </script>
+</head>
+
+<body>
+  <h1>Liste de tâches</h1>
+  <ul id="liste-taches">
+    <li>Tâche 1</li>
+    <li>Tâche 2</li>
+  </ul>
+  <input type="text" id="nouvelle-tache" placeholder="Nouvelle tâche">
+  <button id="ajouter-tache">Ajouter</button>
+</body>
+
+</html>

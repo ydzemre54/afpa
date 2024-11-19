@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Exercice : Modification du contenu et des attributs</title>
+  <style>
+    .highlight {
+      color: red;
+      font-size: 60px;
+      text-align: center;
+      transition:5s all;
+    }
+
+    .yes {
+      font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+      font-size: 100px;
+      text-align: center;
+      color: rgb(192, 192, 192);
+      transition:5s all;
+    }
+
+    .no {
+      width: 500px;
+      display: block;
+      margin: auto;
+      transition:5s all;
+    }
+
+    .alors {
+      background-color: blueviolet;
+      transition:5s all;
+    }
+  </style>
+  <script type="module">
+    // Complétez le code JavaScript ci-dessous
+    const emre = document.getElementById("couleur")
+    // 1. Modifiez le texte du titre
+    const monTitre = document.getElementById("titre")
+    monTitre.textContent = "Lionel Pessi"
+
+    // 2. Ajoutez du contenu HTML au paragraphe
+    const monParagraphe = document.getElementById("paragraphe")
+    const nvparag = monParagraphe.textContent
+    monParagraphe.innerHTML = "<h3> que mira bobo </h3>"
+
+    // 3. Changez la source de l'image
+    const monImage = document.getElementById("image")
+    monImage.src = "pessi.jpg"
+
+    // 4. Ajoutez un attribut "disabled" au bouton
+    const monBouton = document.getElementById("bouton")
+    monBouton.setAttribute("isabled", "")
+
+    // 5. Ajoutez la classe "highlight" au paragraphe
+   //monParagraphe.classList.add("highlight")
+   //monImage.classList.add("no")
+   //monTitre.classList.add("yes")
+   //emre.classList.add("alors")
+
+
+    // Bonus : Créez une fonction qui alterne la classe "highlight" sur le paragraphe lors du clic sur le bouton
+    monBouton.addEventListener("click", alterne)
+    function alterne() {
+      monParagraphe.classList.toggle("highlight")
+      monImage.classList.toggle("no")
+      monTitre.classList.toggle("yes")
+      emre.classList.toggle("alors")
+
+    }
+  </script>
+</head>
+
+<body id="couleur">
+  <h1 id="titre">Titre original</h1>
+  <p id="paragraphe">Contenu du paragraphe</p>
+  <img id="image" src="https://placehold.co/600x400" alt="Image placeholder">
+  <button id="bouton">Cliquez-moi</button>
+
+</body>
+
+</html>
